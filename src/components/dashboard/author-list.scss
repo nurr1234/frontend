@@ -1,0 +1,70 @@
+@use "../../styles/variables" as v;
+
+// Author List Styles
+.container {
+  width: 30%;
+  font-family: v.$font-family-sans-serif; 
+  font-size: 16px; // Metin boyutunu ayarla
+  background-color: #d8deff; // Arka plan rengini değiştir
+  padding: 20px; // Kenar boşluklarını ayarla
+  margin: 0 auto; // Merkezlemek için kenar boşlukları ayarla
+  border: 1px solid #5228c7; // Kenarlık ekle
+  border-radius: 8px; // Köşeleri yuvarla
+}
+
+
+.card {
+  background-color: v.$color4;
+  border: none;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: v.$color1;
+}
+
+.data-table {
+  width: 70%;
+  font-family: v.$font-family-sans-serif; // Sans-serif fontunu uygula
+}
+
+.table-row-divider {
+  border-bottom: 1px solid v.$color6;
+}
+
+.data-table-column {
+  text-align: center;
+  font-family: v.$font-family-sans-serif; // Sans-serif fontunu uygula
+}
+
+.data-table-column-header {
+  text-align: center;
+  font-weight: bold;
+  font-family: v.$font-family-sans-serif; // Sans-serif fontunu uygula
+}
+
+.data-table-pagination {
+  margin-top: 20px;
+  font-family: v.$font-family-sans-serif; // Sans-serif fontunu uygula
+}
+
+// Pagination Button Styles
+.pagination-button {
+  background-color: v.$color1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-family: v.$font-family-sans-serif; // Sans-serif fontunu uygula
+}
+
+.pagination-button:hover {
+  background-color: darken(v.$color1, 10%);
+}
+
+.pagination-button:disabled {
+  background-color: lighten(v.$color1, 40%);
+  cursor: not-allowed;
+}

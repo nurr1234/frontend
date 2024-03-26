@@ -1,0 +1,299 @@
+[
+  { 
+    "id": 1, 
+    "title": "İNSANIN ANLAM ARAYIŞI", 
+    "imageUrl": "/images/book/book1.png", 
+    "author": "VİCTOR EMİL FRANKL", 
+    "isbn": "9786054054206",
+    "publishDate": "2019-09-19"
+  },
+  { 
+    "id": 2, 
+    "title": "GECE YARISI KÜTÜPHANESİ", 
+    "imageUrl": "/images/book/book2.png", 
+    "author": "MATT HAIG", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-02-23"
+  },
+  { 
+    "id": 3, 
+    "title": "SİMYACI", 
+    "imageUrl": "/images/book/book3.png", 
+    "author": "PAULO COELHO", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 4, 
+    "title": "İRADE TERBİYESİ", 
+    "imageUrl": "/images/book/book4.png", 
+    "author": "Jules Payot ", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 5, 
+    "title": "İYİ HİSSETMEK", 
+    "imageUrl": "/images/book/book5.png", 
+    "author": "Dr. David Burns ", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 6, 
+    "title": "ANIMAL FARM", 
+    "imageUrl": "/images/book/book6.png", 
+    "author": "GEORGE ORWELL", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 7, 
+    "title": "THE LİTTLE PRİNCE", 
+    "imageUrl": "/images/book/book7.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 8, 
+    "title": "ROMEO VE JULIET", 
+    "imageUrl": "/images/book/book8.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 9, 
+    "title": "The Curious Case of Benjamin Button", 
+    "imageUrl": "/images/book/book9.png", 
+    "author": "F. Scott Fitzgerald ", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+
+  },
+  { 
+    "id": 10, 
+    "title": "KRALİÇEYİ KURTARMAK", 
+    "imageUrl": "/images/book/book10.png" ,
+    "author": "Vladimir Tumanov ", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 11, 
+    "title": "YAŞAMAK", 
+    "imageUrl": "/images/book/book11.png", 
+    "author": "Yu Hua ", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 12, 
+    "title": "BİLİNÇALTININ GÜCÜ", 
+    "imageUrl": "/images/book/book12.png", 
+    "author": "JOSEPH MURPHY", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 13, 
+    "title": "DÜNYANIN EN YALNIZ BEYNİ", 
+    "imageUrl": "/images/book/book13.png", 
+    "author": "SERKAN KARAİSMAİLOĞLU", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 14, 
+    "title": "İNCE MEMED", 
+    "imageUrl": "/images/book/book14.png", 
+    "author": "YAŞAR KEMAL", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 15, 
+    "title": "FAHRENHEIT 451", 
+    "imageUrl": "/images/book/book15.png", 
+    "author": "Ray Bradbury ", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 16, 
+    "title":"BEYAZ ZAMBAKLAR ÜLKESİNDE", 
+    "imageUrl": "/images/book/book16.png", 
+    "author": "GRİGORY PETROV", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 17, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book17.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 18, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book18.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 19, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book19.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 20, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 21, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 22, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 23, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 24, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 25, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 26, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 16, 
+    "title":"BEYAZ ZAMBAKLAR ÜLKESİNDE", 
+    "imageUrl": "/images/book/book16.png", 
+    "author": "GRİGORY PETROV", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 17, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book17.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 18, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book18.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 19, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book19.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 20, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 21, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 22, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 23, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 24, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 25, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 26, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  }
+]

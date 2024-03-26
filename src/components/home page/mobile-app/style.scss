@@ -1,0 +1,39 @@
+.outline {
+    color: bisque;
+    background-color: rgb(156, 52, 14);
+
+  }
+  
+  .outline:hover {
+    background-color: rgb(200, 85, 32);
+    color: bisque;
+  }
+  
+.mobile-app{
+    background-color: cadetblue;
+    transform: translateY(50px);
+    >div{
+        padding: 50px;
+    }
+    h1{
+        color: bisque;
+    }
+
+    div[class^="col"]{
+        display: flex ;
+        align-items: center;
+        &:last-child{
+            justify-content: start;
+
+            button{
+                margin-left: 10px;
+            }
+
+
+            @media(min-width:992px) {
+                    justify-content:end;
+
+                }
+    }
+}
+}

@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "Monthly Sales Report",
+      "description": "This report contains the sales data for the month of January.",
+      "createdAt": "2024-01-01T08:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Quarterly Financial Report",
+      "description": "Financial analysis for the first quarter of the year.",
+      "createdAt": "2024-04-01T08:00:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Annual Performance Review",
+      "description": "Performance evaluation for the year 2023.",
+      "createdAt": "2024-06-15T08:00:00Z"
+    }
+  ]
+  

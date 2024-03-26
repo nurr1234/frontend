@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "name": "Yapi Kredi",
+      "built_in": true
+    },
+    {
+      "id": 2,
+      "name": "Can Yayinlari",
+      "built_in": false
+    },
+    {
+      "id": 3,
+      "name": "Timaş",
+      "built_in": false
+    },
+    {
+        "id": 4,
+        "name": "Doğan",
+        "built_in": true
+      },
+      {
+        "id": 5,
+        "name": "Karbon",
+        "built_in": false
+      },
+      {
+        "id": 6,
+        "name": "Olimpos",
+        "built_in": false
+      },
+      {
+        "id": 7,
+        "name": "Yapı Kredi",
+        "built_in": true
+      },
+      {
+        "id": 8,
+        "name": "Can Yayinlari",
+        "built_in": false
+      },
+      {
+        "id": 9,
+        "name": "Timaş",
+        "built_in": false
+      },
+      {
+          "id": 10,
+          "name": "Doğan",
+          "built_in": true
+        },
+        {
+          "id": 11,
+          "name": "Karbon",
+          "built_in": false
+        },
+        {
+          "id": 12,
+          "name": "Olimpos",
+          "built_in": false
+        }
+  ]
+  

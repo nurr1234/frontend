@@ -1,0 +1,20 @@
+[
+  { "id": 1, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 2, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
+  { "id": 3, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
+  { "id": 4, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 5, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
+  { "id": 6, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
+  { "id": 7, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 8, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
+  { "id": 9, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
+  { "id": 10, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 11, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
+  { "id": 12, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
+  { "id": 13, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 14, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
+  { "id": 15, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
+  { "id": 16, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 17, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
+  { "id": 18, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" }
+]

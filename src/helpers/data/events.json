@@ -1,0 +1,165 @@
+[
+    {
+      "id": 1,
+      "title": "Modern Web Development Workshop",
+      "date": "2029-02-15",
+      "location": "Online",
+      "description": "Join us for an interactive workshop on modern web development practices.",
+      "image": "image1.jpg",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "React Meetup",
+      "date": "2028-02-22",
+      "location": "Local Community Center",
+      "description": "Come and meet fellow React developers in our local community meetup!",
+      "image": "image2.jpg",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "JavaScript Conference",
+      "date": "2027-03-10",
+      "location": "City Convention Center",
+      "description": "Attend the largest JavaScript conference of the year and learn from industry experts.",
+      "image": "image3.jpg",
+      "featured": true
+    },
+    {
+      "id": 4,
+      "title": "Web Development Workshop",
+      "date": "2029-02-15",
+      "location": "Online",
+      "description": "Join us for an interactive workshop on modern web development practices.",
+      "image": "image4.jpg",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "React Native Workshop",
+      "date": "2028-02-22",
+      "location": "Local Community Center",
+      "description": "Learn to build mobile apps with React Native in this hands-on workshop!",
+      "image": "image5.jpg",
+      "featured": true
+    },
+    {
+      "id": 6,
+      "title": "Frontend Development Summit",
+      "date": "2027-03-10",
+      "location": "City Convention Center",
+      "description": "Join us for a summit covering the latest trends and technologies in frontend development.",
+      "image": "image1.jpg",
+      "featured": true
+    },
+    {
+      "id": 7,
+      "title": "Advanced CSS Techniques Workshop",
+      "date": "2029-02-15",
+      "location": "Online",
+      "description": "Take your CSS skills to the next level with this advanced workshop.",
+      "image": "image2.jpg",
+      "featured": true
+    },
+    {
+      "id": 8,
+      "title": "Vue.js Meetup",
+      "date": "2028-02-22",
+      "location": "Local Community Center",
+      "description": "Join fellow Vue.js enthusiasts for a meetup and networking event!",
+      "image": "image3.jpg",
+      "featured": true
+    },
+    {
+      "id": 9,
+      "title": "Node.js Conference",
+      "date": "2027-03-10",
+      "location": "City Convention Center",
+      "description": "Explore the latest developments in Node.js at this annual conference.",
+      "image": "image4.jpg",
+      "featured": true
+    },
+    {
+      "id": 10,
+      "title": "Full Stack Development Bootcamp",
+      "date": "2029-02-15",
+      "location": "Online",
+      "description": "Join us for an intensive bootcamp covering full stack development.",
+      "image": "image5.jpg",
+      "featured": true
+    },
+    {
+      "id": 11,
+      "title": "Python Workshop",
+      "date": "2028-02-22",
+      "location": "Local Community Center",
+      "description": "Learn Python programming language fundamentals in this hands-on workshop!",
+      "image": "image1.jpg",
+      "featured": true
+    },
+    {
+      "id": 12,
+      "title": "DevOps Summit",
+      "date": "2027-03-10",
+      "location": "City Convention Center",
+      "description": "Explore the latest practices and tools in DevOps at this summit.",
+      "image": "image2.jpg",
+      "featured": true
+    },
+    {
+      "id": 13,
+      "title": "GraphQL Workshop",
+      "date": "2029-02-15",
+      "location": "Online",
+      "description": "Learn how to build APIs with GraphQL in this interactive workshop.",
+      "image": "image3.jpg",
+      "featured": true
+    },
+    {
+      "id": 14,
+      "title": "Angular Meetup",
+      "date": "2028-02-22",
+      "location": "Local Community Center",
+      "description": "Join fellow Angular developers for a meetup and knowledge sharing event!",
+      "image": "image4.jpg",
+      "featured": true
+    },
+    {
+      "id": 15,
+      "title": "Docker Workshop",
+      "date": "2027-03-10",
+      "location": "City Convention Center",
+      "description": "Explore containerization with Docker in this hands-on workshop.",
+    "image": "image5.jpg",
+    "featured": true
+  },
+  
+  {
+    "id": 16,
+    "title": "Cybersecurity Conference",
+    "date": "2029-02-15",
+    "location": "Online",
+    "description": "Stay up-to-date with the latest trends and practices in cybersecurity at this conference.",
+    "image": "image1.jpg",
+    "featured": true
+  },
+  {
+    "id": 17,
+    "title": "Machine Learning Workshop",
+    "date": "2028-02-22",
+    "location": "Local Community Center",
+    "description": "Learn the basics of machine learning in this beginner-friendly workshop.",
+    "image": "image2.jpg",
+    "featured": true
+  },
+  {
+    "id": 18,
+    "title": "Big Data Summit",
+    "date": "2027-03-10",
+    "location": "City Convention Center",
+    "description": "Explore the latest developments in big data technologies at this summit.",
+    "image": "image3.jpg",
+    "featured": true
+  }
+] 

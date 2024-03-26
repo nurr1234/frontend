@@ -1,0 +1,16 @@
+@use "../../styles/variables";
+.upcoming-events{
+    background-color: rgb(2, 44, 38);
+    h2 {
+        display: flex;
+        justify-content: space-between;
+        color: bisque;
+        margin-bottom: 50px;
+        padding-top: 50px;
+    }
+
+    .swiper-slide {
+        height: auto;
+        margin-bottom: 50px;
+    }
+}

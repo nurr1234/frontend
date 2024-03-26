@@ -1,0 +1,38 @@
+.searchbar {
+    margin-top: 16rem;
+    padding: 2rem;
+    background-color: rgba(127, 255, 212, 0.6);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border: none;
+    position: relative;
+}
+
+.bar {
+    width: 45rem;
+    border-radius: 0;
+    background-color: rgba(250, 500, 200, 0.7);
+    border: none;
+}
+
+.bar:focus {
+    background-color: red;
+}
+
+.buton {
+    border-radius: 0;
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    background-color: aqua;
+}
+
+.buton:hover {
+    background-color: rgba(250, 500, 200, 0.7);
+}
+
+.buton:active {
+    background-color: red; /* butona tıklandığında arka plan rengini değiştir */
+}
+

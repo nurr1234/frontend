@@ -1,0 +1,49 @@
+// dashboard-navigation.scss
+
+.dashboard-navigation {
+  .dashboard-card-link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+    
+  }
+  
+  
+  
+  .dashboard-icon-container {
+    margin-left: 50px;
+    font-size: 80px;
+
+    svg {
+      color: #9178a4;
+    }
+  }
+
+  .dashboard-card-title {
+    font-size: 25px !important;
+    width: 160px;
+  }
+
+  .dashboard-card-text {
+    font-size: 48px;
+
+    @media (max-width: 1275px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 1147px) {
+      font-size: 35px;
+    }
+  }
+
+  .dashboard-card {
+    background-color: rgb(180, 153, 197) !important;
+    border: none !important;
+
+    &:hover {
+      background-color: rgb(217, 188, 233) !important;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "image": "slider-01.jpg",
+        "title": "Destek Yayin Grubu",
+        "desc": "A book about the good parts of JavaScript programming language."
+    },
+    {
+        "id": 2,
+        "image": "slider-02.jpg",
+        "title": "Hayy Kitap",
+        "desc": "A comprehensive guide to building user interfaces with React."
+    
+    },
+       { "id": 3,
+        "title": "Pegasus Yayınları",
+        "desc": "An online course covering,the essentials of Node.js development.",
+        "image": "resim10.jpg"
+    }
+]
