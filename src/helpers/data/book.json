@@ -51,25 +51,25 @@
     "id": 7, 
     "title": "THE LİTTLE PRİNCE", 
     "imageUrl": "/images/book/book7.png", 
-    "author": "Author 1", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "author": "Antoine De Saint Exupery ", 
+    "isbn": "9786059681001", 
+    "publishDate": "15.02.2016"
   },
   { 
     "id": 8, 
     "title": "ROMEO VE JULIET", 
     "imageUrl": "/images/book/book8.png", 
-    "author": "Author 1", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "author": "William Shakespeare", 
+    "isbn": "9789944888004", 
+    "publishDate": "10.06.2019"
   },
   { 
     "id": 9, 
     "title": "The Curious Case of Benjamin Button", 
     "imageUrl": "/images/book/book9.png", 
     "author": "F. Scott Fitzgerald ", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "isbn": "9786257784832", 
+    "publishDate": "21.12.2020"
 
   },
   { 
@@ -77,8 +77,8 @@
     "title": "KRALİÇEYİ KURTARMAK", 
     "imageUrl": "/images/book/book10.png" ,
     "author": "Vladimir Tumanov ", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "isbn": "9786059952767", 
+    "publishDate": "14.10.2019"
   },
   { 
     "id": 11, 
@@ -209,39 +209,7 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 16, 
-    "title":"BEYAZ ZAMBAKLAR ÜLKESİNDE", 
-    "imageUrl": "/images/book/book16.png", 
-    "author": "GRİGORY PETROV", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
-  },
-  { 
-    "id": 17, 
-    "title": "Book 1", 
-    "imageUrl": "/images/book/book17.png", 
-    "author": "Author 1", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
-  },
-  { 
-    "id": 18, 
-    "title": "Book 1", 
-    "imageUrl": "/images/book/book18.png", 
-    "author": "Author 1", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
-  },
-  { 
-    "id": 19, 
-    "title": "Book 1", 
-    "imageUrl": "/images/book/book19.png", 
-    "author": "Author 1", 
-    "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
-  },
-  { 
-    "id": 20, 
+    "id": 27, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.png", 
     "author": "Author 1", 
@@ -249,7 +217,7 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 21, 
+    "id": 28, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.png", 
     "author": "Author 1", 
@@ -257,7 +225,7 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 22, 
+    "id": 29, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.png", 
     "author": "Author 1", 
@@ -265,7 +233,7 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 23, 
+    "id": 30, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.png", 
     "author": "Author 1", 
@@ -273,7 +241,7 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 24, 
+    "id": 31, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.png", 
     "author": "Author 1", 
@@ -281,7 +249,7 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 25, 
+    "id": 32, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.jpg", 
     "author": "Author 1", 
@@ -289,11 +257,236 @@
     "publishDate": "2022-01-01"
   },
   { 
-    "id": 26, 
+    "id": 33, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 34, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 35, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 36, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 37, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 38, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 39, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 40, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 41, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 42, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 43, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 44, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 45, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 46, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 47, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 48, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 49, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 50, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 51, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 52, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 53, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 54, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 55, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 56, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 57, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 58, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 59, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.png", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 60, 
+    "title": "Book 1", 
+    "imageUrl": "/images/book/book20.jpg", 
+    "author": "Author 1", 
+    "isbn": "1234567890", 
+    "publishDate": "2022-01-01"
+  },
+  { 
+    "id": 61, 
     "title": "Book 1", 
     "imageUrl": "/images/book/book20.jpg", 
     "author": "Author 1", 
     "isbn": "1234567890", 
     "publishDate": "2022-01-01"
   }
+  
 ]

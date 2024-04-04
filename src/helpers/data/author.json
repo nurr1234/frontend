@@ -2,7 +2,7 @@
   { "id": 1, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
   { "id": 2, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
   { "id": 3, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
-  { "id": 4, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },
+  { "id": 4, "firstName": "Cengiz", "lastName": "Aytmatov", "profileImage":  "/images/author/author1.png"  },
   { "id": 5, "firstName": "James", "lastName": "Clear", "profileImage": "images/author/author2.png" },
   { "id": 6, "firstName": "Sabahattin", "lastName": "Ali", "profileImage": "images/author/author3.png" },
   { "id": 7, "firstName": "Stefan", "lastName": "Zweig", "profileImage":  "/images/author/author1.png"  },

@@ -1,44 +1,51 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
-import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
-import { setListRefreshToken, setOperation } from "../../store/slices/misc-slice";
-import { swalAlert } from "../../helpers/functions/swal";
+import { setOperation } from "../../store/slices/misc-slice";
+import { swalAlert,swalConfirm } from "../../helpers/functions/swal";
 import ButtonLoader from "../../components/common/button-loader";
 import { Link } from "react-router-dom";
 
-const createPublisher = async (publisherData) => {
-  console.log("Creating new publisher:", publisherData);
+const updatePublisher = async (id, publisherData) => {
+  console.log("Updating publisher with id", id, ":", publisherData);
 };
 
-const PublisherNewPage = () => {
+const PublisherEditPage = ({ publisher }) => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
-    name: "",
-    description: "",
-    website: ""
+    name: publisher.name,
+    description: publisher.description,
+    website: publisher.website
   };
-
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Name is required"),
-    description: Yup.string().required("Description is required"),
-    website: Yup.string().url("Website must be a valid URL").required("Website URL is required")
-  });
 
   const onSubmit = async (values, formikBag) => {
     setLoading(true);
     try {
-      await createPublisher(values);
-      formikBag.resetForm();
-      dispatch(setListRefreshToken(Math.random()));
+      await updatePublisher(publisher.id, values);
       dispatch(setOperation(null));
-      swalAlert("Publisher created successfully", "success");
+      swalAlert("Publisher updated successfully", "success");
     } catch (err) {
       console.log(err);
-      swalAlert("Failed to create publisher", "error");
+      swalAlert("Failed to update publisher", "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    const resp = await swalConfirm("Are you sure you want to delete?");
+    if (!resp.isConfirmed) return;
+    setLoading(true);
+    try {
+      // Silme işlemi
+      swalAlert("Publisher was deleted", "success");
+      dispatch(setOperation(null));
+    } catch (err) {
+      console.log(err);
+      swalAlert("Failed to delete publisher", "error");
     } finally {
       setLoading(false);
     }
@@ -50,7 +57,6 @@ const PublisherNewPage = () => {
 
   const formik = useFormik({
     initialValues,
-    validationSchema,
     onSubmit
   });
 
@@ -59,7 +65,7 @@ const PublisherNewPage = () => {
       <Card>
         <Card.Body>
           <Card.Title>
-            <Link to="/new-publisher" className="text-decoration-none">New Publisher</Link>
+            <Link to={`/publishers/${publisher.id}/edit`} className="text-decoration-none">Edit Publisher</Link>
           </Card.Title>
           <Form noValidate onSubmit={formik.handleSubmit}>
             <Row className="row-cols-1 row-cols-sm-2">
@@ -69,12 +75,8 @@ const PublisherNewPage = () => {
                     type="text"
                     placeholder="Enter name"
                     {...formik.getFieldProps("name")}
-                    isInvalid={formik.touched.name && !!formik.errors.name}
                     className="custom-input"
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {formik.errors.name}
-                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Col>
               <Col>
@@ -83,12 +85,8 @@ const PublisherNewPage = () => {
                     type="text"
                     placeholder="Enter description"
                     {...formik.getFieldProps("description")}
-                    isInvalid={formik.touched.description && !!formik.errors.description}
                     className="custom-input"
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {formik.errors.description}
-                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Col>
               <Col>
@@ -97,26 +95,25 @@ const PublisherNewPage = () => {
                     type="text"
                     placeholder="Enter website URL"
                     {...formik.getFieldProps("website")}
-                    isInvalid={formik.touched.website && !!formik.errors.website}
                     className="custom-input"
                   />
-                  <Form.Control.Feedback type="invalid">
-                    {formik.errors.website}
-                  </Form.Control.Feedback>
                 </FloatingLabel>
               </Col>
             </Row>
             <Row>
               <Col className="text-end">
+                <Button variant="danger" type="button" onClick={handleDelete} className="me-3">
+                  Delete
+                </Button>
                 <Button variant="warning" type="button" onClick={handleCancel} className="me-3">
                   Cancel
                 </Button>
                 <Button
                   variant="secondary"
                   type="submit"
-                  disabled={!(formik.dirty && formik.isValid) || loading}
+                  disabled={loading}
                 >
-                  {loading ? <ButtonLoader /> : "Create"}
+                  {loading ? <ButtonLoader /> : "Update"}
                 </Button>
               </Col>
             </Row>
@@ -127,4 +124,4 @@ const PublisherNewPage = () => {
   );
 };
 
-export default PublisherNewPage;
+export default PublisherEditPage;

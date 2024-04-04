@@ -1,24 +1,25 @@
-import React from 'react';
-import { Button, Card, Container } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Card, Container, Form, Button } from 'react-bootstrap';
+import { Image } from 'primereact/image';
 import { DataTable } from 'primereact/datatable';
+import { GiQuillInk } from "react-icons/gi";
+import { SiAffinitypublisher } from "react-icons/si";
+import { TiTick } from "react-icons/ti";
 import { Column } from 'primereact/column';
-import { FaTimes } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
-import { setListRefreshToken, setOperation } from '../../store/slices/misc-slice';
-import { swalAlert, swalConfirm } from '../../helpers/functions/swal';
-import BooksData from '../../helpers/data/book.json';
 import { useNavigate } from 'react-router-dom';
+import BookData from '../../helpers/data/book.json';
 import './book-list.scss';
+import { CiSearch } from 'react-icons/ci';
 
 const BookList = () => {
-  const [list, setList] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-  const [totalRows, setTotalRows] = React.useState(0);
-  const dispatch = useDispatch();
-  const { listRefreshToken } = useSelector(state => state.misc);
+  const [list, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [totalRows, setTotalRows] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterOption, setFilterOption] = useState('all');
   const navigate = useNavigate();
 
-  const [lazyState, setLazyState] = React.useState({
+  const [lazyState, setLazyState] = useState({
     first: 0,
     rows: 10,
     page: 0,
@@ -31,40 +32,65 @@ const BookList = () => {
   };
 
   const loadData = async page => {
-    const exampleData = BooksData;
-    setList(exampleData);
-    setTotalRows(exampleData.length);
-    setLoading(false);
-  };
-
-  const handleDelete = async id => {
-    const resp = await swalConfirm('Are you sure to delete?');
-    if (!resp.isConfirmed) return;
-    setLoading(true);
     try {
-      const newList = list.filter(item => item.id !== id);
-      setList(newList);
-      setTotalRows(totalRows - 1);
-      dispatch(setListRefreshToken(Math.random()));
-      swalAlert('Book was deleted', 'success');
-    } catch (err) {
-      console.log(err);
-    } finally {
+      const exampleData = BookData;
+      const startIndex = (page - 1) * lazyState.rows;
+      const endIndex = startIndex + lazyState.rows;
+      const slicedData = exampleData.slice(startIndex, endIndex);
+      setList(slicedData);
+      setTotalRows(exampleData.length);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error loading data:', error);
       setLoading(false);
     }
   };
-
-  const handleRowClick = row => {
-    // Burada BookEditPage'e yönlendirme işlemini yapın
-    navigate(`/books/edit/${row.id}`);
+  
+  const handleRowClick = (event, rowData) => {
+    if (rowData && rowData.id) {
+      navigate(`/books/edit/${rowData.id}`);
+    }
   };
 
-  const getOperationButtons = row => {
+  const handleTitleClick = (event, rowData) => {
+    if (rowData && rowData.id) {
+      navigate(`/books/edit/${rowData.id}`);
+    }
+  };
+
+  const handleNewBookClick = () => {
+    navigate('/book/new');
+  };
+
+  const bookBodyTemplate = rowData => {
     return (
-      <div>
-        <Button className="btn-link" onClick={() => handleDelete(row.id)}>
-          <FaTimes />
-        </Button>
+      <div className="bookColumn">
+        <div className="titleColumn" onClick={event => handleTitleClick(event, rowData)}>
+          <span className="titleText">{rowData.title}</span>
+        </div>
+        <div className="infoColumn">
+          <div className="authorColumn">
+            <GiQuillInk />
+            <span className="authorText">{rowData.author}</span>
+          </div>
+          <div className="publishDateColumn">
+            <SiAffinitypublisher />
+            <span className="publishDateText">{rowData.publishDate} </span>
+          </div>
+        </div>
+        <div className="availableColumn">
+          <TiTick className="availableIcon" />
+          {availableBodyTemplate(rowData)}
+        </div>
+      </div>
+    );
+  };
+
+  const imageBodyTemplate = rowData => {
+    const icon = (<i className="pi pi-search"></i>)
+    return (
+      <div className="card flex justify-content-center">
+        <Image src={rowData.imageUrl} indicatorIcon={icon} alt={rowData.title} preview />
       </div>
     );
   };
@@ -72,51 +98,99 @@ const BookList = () => {
   const availableBodyTemplate = rowData => {
     return rowData.available ? <span className="text-success">Available</span> : <span className="text-danger">Not Available</span>;
   };
-  
-  React.useEffect(() => {
-    loadData(lazyState.page);
-  }, [lazyState, listRefreshToken]);
 
-  const imageBodyTemplate = rowData => {
-    return (
-      <img src={rowData.imageUrl} alt={rowData.title} style={{ width: '50px', height: 'auto' }} />
-    );
+  useEffect(() => {
+    loadData(lazyState.page);
+  }, [lazyState]);
+
+  // Arama işlevi
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    // Arama yaparken sayfalama sıfırlanmalı
+    setLazyState({ ...lazyState, page: 0 });
   };
 
+  // Filtreleme işlevi
+  const handleFilter = (e) => {
+    setFilterOption(e.target.value);
+    
+    setLazyState({ ...lazyState, page: 0 });
+  };
+
+ 
+  const handleSearchButtonClick = () => {
+    loadData(lazyState.page);
+  };
+
+  // Filtrelenmiş ve aranmış verileri filtreleme
+const filteredData = list.filter((item) => {
+  if (!searchTerm && filterOption === 'all') {
+    return true; // Arama terimi yok ve tüm kitaplar gösterilmeli
+  } else if (!searchTerm && filterOption === 'available') {
+    return item.available;
+  } else if (!searchTerm && filterOption === 'not-available') {
+    return !item.available;
+  } else {
+    if (filterOption === 'all') {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
+    } else if (filterOption === 'available') {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase()) && item.available;
+    } else {
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase()) && !item.available;
+    }
+  }
+});
+
+
   return (
-    <Container>
-      <Card>
-        <Card.Body>
-          <Card.Title className="d-flex justify-content-between">
-          </Card.Title>
-
-          <DataTable
-            lazy
-            dataKey="id"
-            value={list}
-            paginator
-            rows={lazyState.rows}
-            totalRecords={totalRows}
-            loading={loading}
-            first={lazyState.first}
-            onPage={onPage}
-            onRowClick={handleRowClick}
-            rowGroupMode="rowspan" 
+    <div>
+      <Container>
+        <Card>
+          <Card.Body>
+            <Form>
+              <Form.Group className="mb-3">
+              <div className="d-flex">
+                <Form.Control
+                  type="text"
+                  placeholder="Search by title, author, or ISBN"
+                  value={searchTerm}
+                  onChange={handleSearch}
+                  />
+                <Button variant="primary" onClick={handleSearchButtonClick}><CiSearch /></Button>
+                <Button variant="success" onClick={handleNewBookClick}>New Book</Button>
+                </div>
+              </Form.Group>
+              
+              <Form.Group className="mb-3">
+                <Form.Select value={filterOption} onChange={handleFilter}>
+                  <option value="all">All</option>
+                  <option value="available">Available</option>
+                  <option value="not-available">Not Available</option>
+                </Form.Select>
+              </Form.Group>
+              
+            </Form>
             
-          >
-           
+            <DataTable
+              lazy
+              dataKey="id"
+              value={filteredData}
+              paginator
+              rows={lazyState.rows}
+              totalRecords={totalRows}
+              loading={loading}
+              first={lazyState.first}
+              onPage={onPage}
+              onRowClick={handleRowClick}
             
-            <Column body={imageBodyTemplate} style={{ width: '100px',textAlign:'right' }} />
-            <Column field="title"  style={{ width: '200px', textAlign: 'center' }} />
-            <Column field="author"  style={{ width: '150px', textAlign: 'center' }} />
-            <Column field="publishDate"  style={{ width: '150px', textAlign: 'center' }} />
-            <Column header="Available" body={availableBodyTemplate} />
-
-
-          </DataTable>
-        </Card.Body>
-      </Card>
-    </Container>
+            >
+              <Column className="imageColumn" body={imageBodyTemplate} />
+              <Column className="bookColumn" body={bookBodyTemplate} />
+            </DataTable>
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
   );
 };
 

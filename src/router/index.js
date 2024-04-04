@@ -7,12 +7,18 @@ import LoginPage from '../pages/login-page';
 import DashboardPage from '../pages/dashboard/dashboard-page';
 import LibraryPage from '../components/library-page/library'
 import BookPage from '../pages/dashboard/book-page'; 
+import BookNewPage from '../pages/dashboard/book-new-page';
+import BookEditPage from '../components/dashboard/book-edit-page';
 import AuthorPage from '../pages/dashboard/author-page';
+import AuthorNewPage from '../pages/dashboard/author-new-page';
 import CategoriesPage from '../pages/dashboard/categories-page';
+import CategoryNewPage from '../pages/dashboard/category-new-page';
 import PublisherPage from '../pages/dashboard/publisher-page';
+import PublisherNewPage from '../pages/dashboard/publisher-new-page';
 import UserPage from '../pages/dashboard/user-page';
 import Error404Page from '../pages/errors/error-404';
 import Error401Page from '../pages/errors/error-401';
+
 
 const AppRouter = () => {
   return (
@@ -25,12 +31,18 @@ const AppRouter = () => {
           <Route path="library" element={<LibraryPage />} />
           <Route path="dashboard" element={<DashboardPage />} />
           <Route path="books" element={<BookPage />} />
+          <Route path="book/new" element={<BookNewPage />} />
+          <Route path="books/edit" element={<BookEditPage />} />
           <Route path="authors" element={<AuthorPage />} />
+          <Route path="author/new" element={<AuthorNewPage />} />
           <Route path="categories" element={<CategoriesPage />} />
+          <Route path="categories/new" element={<CategoryNewPage />} />
           <Route path="publishers" element={<PublisherPage />} />
+          <Route path="publishers/new" element={<PublisherNewPage />} />
           <Route path="user" element={<UserPage />} />
           <Route path="unauthorized" element={<Error401Page />} />
           <Route path="*" element={<Error404Page />} />
+          
         </Route>
       </Routes>
     </Router>

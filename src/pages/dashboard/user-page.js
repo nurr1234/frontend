@@ -2,8 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Spacer from "../../components/common/spacer";
 import PageHeader from "../../components/common/page-header";
-import UserSearch from "../../components/dashboard/users-page/user-search";
-import UsersList from "../../components/dashboard/users-page/users-list";
+
+import UserNewPage from "../dashboard/user-new-page"
+import UsersList from "../../components/dashboard/users-list";
 import UserEditPage from "../../components/dashboard/users-page/user-edit-page"; // Ekledik
 
 const UsersPage = () => {
@@ -18,18 +19,18 @@ const UsersPage = () => {
     <>
       <PageHeader title="Users Page" />
       <Spacer />
-      <UserSearch onSearch={handleSearch} />
+      
       <Spacer />
       {currentOperation === "new" && (
         <>
-          {/* Yeni kullanıcı oluşturma sayfası burada olacak */}
-          <UserEditPage user={{}} />
+        
+          <UserNewPage user={{}} />
           <Spacer />
         </>
       )}
       {currentOperation === "edit" && (
         <>
-          {/* Seçilen kullanıcıyı düzenleme sayfası burada olacak */}
+          
           <UserEditPage user={currentUser} />
           <Spacer />
         </>

@@ -2,10 +2,30 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container } from 'react-bootstrap';
 import { CiSearch } from 'react-icons/ci';
+import BookData from '../../helpers/data/book.json';
 
-const AuthorSearch = ({ handleSearch }) => {
+const BookSearch = ({ setSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState('');
+  
   const navigate = useNavigate();
+
+  const fetchBooks = async () => {
+    try {
+      const data = BookData;
+      return data;
+    } catch (error) {
+      console.error('Error fetching books:', error);
+      return [];
+    }
+  };
+
+  const searchBooks = async () => {
+    const books = await fetchBooks();
+    const results = books.filter(book =>
+      book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  };
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -13,29 +33,30 @@ const AuthorSearch = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(searchTerm);
+    searchBooks();
   };
 
   const handleSearchClick = () => {
     if (searchTerm.length >= 3) {
-      handleSearch(searchTerm);
+      searchBooks();
     }
   };
 
-  const handleNewAuthorClick = () => {
-    navigate('/author/new');
+  const handleNewBookClick = () => {
+    navigate('/book/new');
   };
+
   return (
-    <Container className="d-flex justify-content-center">
+    <Container className="d-flex justify-content-center mb-5">
       <Form onSubmit={handleSubmit} className="d-flex align-items-center">
         <Form.Control
           type="text"
-          placeholder="Author name"
+          placeholder="Book, publisher or author name, isbn"
           value={searchTerm}
           onChange={handleChange}
           maxLength={30}
           className="me-2"
-          style={{ height: '45px', width:'800px' }} 
+          style={{ height: '40px', width: '700px' }} 
         />
         <Button
           variant="primary"
@@ -47,15 +68,14 @@ const AuthorSearch = ({ handleSearch }) => {
         </Button>
         <Button 
           variant="success" 
-          onClick={handleNewAuthorClick} 
-          style={{ height: '45px', width: '120px' }} //
+          onClick={handleNewBookClick} 
+          style={{ height: '45px', width: '120px' }} 
         >
-          New Author
+          New Book
         </Button>
       </Form>
     </Container>
   );
-  };
- 
-  
-export default AuthorSearch;
+};
+
+export default BookSearch;

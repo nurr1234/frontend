@@ -1,1 +1,164 @@
+.imageColumn {
+  width: 10%;
+  height: 70px;
+  text-align: right;
+  transition: transform 0.2s;
 
+  .p-image {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+.bookColumn {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+.titleColumn {
+  flex: 1;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.infoColumn {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.authorColumn {
+  display: flex;
+  align-items: center;
+  color: brown;
+}
+
+.authorText {
+  margin-left: 0.5rem;
+  color: rgb(0, 12, 2);
+  font-size: 12px;
+}
+
+.publishDateColumn {
+  color: rgb(7, 7, 6);
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.publishDateText {
+  margin-left: 10px;
+}
+
+.availableColumn {
+  display: flex;
+  align-items: center;
+}
+
+.availableIcon {
+  margin-right: 0.5rem;
+  color: brown;
+}
+
+
+.book-list-container {
+  .search-container {
+    display: flex;
+    margin-bottom: 20px;
+
+    .search-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .search-button {
+      margin-right: 10px;
+    }
+
+    .new-book-button {
+      white-space: nowrap;
+    }
+  }
+
+  .filter-container {
+    margin-bottom: 20px;
+  }
+
+  .image-column {
+    width: 10%;
+  }
+
+  .book-column {
+    width: 90%;
+  }
+
+  .book-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title-column {
+      cursor: pointer;
+
+      .title-text {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .author-column {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+
+        svg {
+          margin-right: 5px;
+        }
+
+        .author-text {
+          margin-right: 10px;
+        }
+      }
+
+      .publish-date-column {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+
+        svg {
+          margin-right: 5px;
+        }
+
+        .publish-date-text {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .available-column {
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: 5px;
+      }
+
+      .available-text {
+        &.text-success {
+          color: green;
+        }
+
+        &.text-danger {
+          color: red;
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap'; // Form ve Button bileşenlerini react-bootstrap'dan içe aktarın
-import { useNavigate } from 'react-router-dom'; // useNavigate hook'unu react-router-dom'dan içe aktarın
+import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const AuthorNewPage = () => {
   // Form giriş değerlerini tutmak için state değişkenleri
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [ssn, setSSN] = useState('');
+  const [birthDate, setBirthDate] = useState('');
 
   const navigate = useNavigate(); // useNavigate hook'unu kullanarak yönlendirme yapmak için navigate fonksiyonunu alın
 
@@ -15,10 +15,9 @@ const AuthorNewPage = () => {
     e.preventDefault();
     // Burada form gönderimini işleyebilirsiniz, örneğin verileri arka uca gönderme gibi
     // Şimdilik, form verilerini sadece konsola yazdıralım
-    console.log({ firstName, lastName, ssn });
-    // İsteğe bağlı olarak, form gönderiminden sonra kullanıcıyı başka bir sayfaya yönlendirebilirsiniz
-    // Örneğin:
-    navigate('/author'); // Kullanıcıyı yazar listesi sayfasına yönlendir (örneğin)
+    console.log({ firstName, lastName, birthDate });
+
+    navigate('/authors'); // Kullanıcıyı yazar listesi sayfasına yönlendir (örneğin)
   };
 
   return (
@@ -47,13 +46,13 @@ const AuthorNewPage = () => {
           />
         </Form.Group>
 
-        <Form.Group controlId="ssn">
-          <Form.Label>SSN</Form.Label>
+        <Form.Group controlId="birthDate">
+          <Form.Label>Birth Date</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Enter SSN"
-            value={ssn}
-            onChange={(e) => setSSN(e.target.value)}
+            type="date"
+            placeholder="Enter Birth Date"
+            value={birthDate}
+            onChange={(e) => setBirthDate(e.target.value)}
             required
           />
         </Form.Group>

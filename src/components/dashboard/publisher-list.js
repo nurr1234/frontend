@@ -1,13 +1,18 @@
+// PublisherList.js
+
 import React, { useState, useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Button, Card, Container } from "react-bootstrap";
 import { CiSearch } from "react-icons/ci";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Image } from "primereact/image";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentRecord, setOperation } from "../../../store/slices/misc-slice";
-import { swalAlert, swalConfirm } from "../../../helpers/functions/swal";
-import PublisherData from "../../../helpers/data/publisher.json";
+import { setCurrentRecord, setOperation } from "../../store/slices/misc-slice";
+import { swalAlert, swalConfirm } from "../../helpers/functions/swal";
+import PublisherData from "../../helpers/data/publisher.json";
+import { IoIosArrowForward } from "react-icons/io";
+import './publisher-list.scss';
 
 const PublisherList = () => {
   const [publishers, setPublishers] = useState([]);
@@ -33,9 +38,10 @@ const PublisherList = () => {
     setLoading(true);
     const start = lazyState.rows * page;
     const end = start + lazyState.rows;
-    const slicedData = PublisherData.slice(start, end);
+    const sortedData = PublisherData.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    const slicedData = sortedData.slice(start, end);
     setPublishers(slicedData);
-    setTotalRows(PublisherData.length);
+    setTotalRows(sortedData.length);
     setLoading(false);
   }, [lazyState]);
 
@@ -50,11 +56,16 @@ const PublisherList = () => {
   };
 
   const handleDelete = async (id) => {
+    const publisher = publishers.find(p => p.id === id);
+    if (publisher && publisher.built_in) {
+      swalAlert("Builtin publishers cannot be deleted", "warning");
+      return;
+    }
     const resp = await swalConfirm("Are you sure you want to delete?");
     if (!resp.isConfirmed) return;
     setLoading(true);
     try {
-      // Silme işlemini gerçekleştir
+      // Silme işlemi
       swalAlert("Publisher was deleted", "success");
       loadData(lazyState.page);
     } catch (err) {
@@ -67,12 +78,11 @@ const PublisherList = () => {
   const handleEdit = (row) => {
     dispatch(setCurrentRecord(row));
     dispatch(setOperation("edit"));
-    // İlgili sayfaya yönlendirme işlemi burada yapılabilir
+    navigate(`/publishers/${row.id}/edit`);
   };
 
   const handleNewPublisher = () => {
     dispatch(setOperation("new"));
-    // Yeni sayfaya yönlendirme işlemi burada yapılabilir
     navigate("/publishers/new");
   };
 
@@ -86,7 +96,7 @@ const PublisherList = () => {
         <Card.Body>
           <Card.Title className="d-flex justify-content-between align-items-center"></Card.Title>
 
-          <div className="d-flex mb-3">
+          <div className="d-flex mb-3 search-bar">
             <input
               type="text"
               className="form-control me-2"
@@ -96,16 +106,24 @@ const PublisherList = () => {
               maxLength={30}
             />
             <Button
-              className="btn-primary"
+              className="btn btn-primary"
+              variant="danger"
               disabled={searchText.length <= 3}
               onClick={handleSearch}
             >
               <CiSearch />
             </Button>
-            <Button onClick={handleNewPublisher}>New Publisher</Button>
+            <Button
+              variant="success"
+              onClick={handleNewPublisher}
+              style={{ height: '55px', width: '120px', }}
+            >
+              New Publisher
+            </Button>
           </div>
 
           <DataTable
+          
             lazy
             dataKey="id"
             value={publishers}
@@ -116,32 +134,21 @@ const PublisherList = () => {
             first={lazyState.first}
             onPage={onPage}
           >
-            <Column field="name" header="Name" />
-            <Column field="description" header="Description" />
             <Column
-              field="createdAt"
-              header="Created At"
-              body={(rowData) =>
-                new Date(rowData.createdAt).toLocaleString()
-              }
+              header
+              body={(rowData) => (
+                <Image src={`/images/publisher/pub${rowData.id}.png`} alt="Profile Image" width="70" height="60" preview />
+              )}
+              style={{ width: '20%' }} // Bu satırı kaldırdık
             />
+            <Column field="name" />
+            <Column field="description" />
+            <Column field="createdAt" header="Created At" style={{ display: 'none' }} />
             <Column
+              header
               body={(rowData) => (
                 <div>
-                  <Button
-                    className="btn-link"
-                    onClick={() => handleEdit(rowData)}
-                  >
-                    Edit
-                  </Button>
-                  {!rowData.built_in && (
-                    <Button
-                      className="btn-link"
-                      onClick={() => handleDelete(rowData.id)}
-                    >
-                      Delete
-                    </Button>
-                  )}
+                  <Link to={`/publishers/${rowData.id}/edit`}><IoIosArrowForward /></Link>
                 </div>
               )}
             />

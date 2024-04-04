@@ -1,0 +1,57 @@
+// publisher-list.scss
+
+@use "../../styles/variables" as v;
+
+.publisher-list-container {
+  .search-bar {
+    display: flex;
+    margin-bottom: 20px;
+
+    .form-control {
+      flex: 1;
+      margin-right: 10px;
+      max-width: 200px;
+    }
+
+    .btn-primary {
+      height: 55px;
+      width: 50px;
+      margin-right: 10px;
+    }
+
+    .btn-success {
+      height: 55px;
+      width: 120px;
+    }
+  }
+  
+  .publisher-table {
+    .p-datatable {
+      margin-top: 20px;
+      
+      .p-paginator {
+        margin-top: 20px;
+        
+      }
+
+      .table-header {
+        .p-column-header {
+          background-color: v.$color4;
+          color: rgb(250, 249, 252);
+        }
+      }
+
+      .table-actions {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn-link {
+        color: v.$color1;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+    }
+  }
+}
