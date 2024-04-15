@@ -1,22 +1,58 @@
-import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
+import UserData from '../../../helpers/data/user.json';
 
-const UserEditPage = ({ user }) => {
-  const [formData, setFormData] = useState(user);
+const UserEditPage = () => {
+  const { userId } = useParams();
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    
+  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const userData = await UserData.getUserById(userId);
+        setUser(userData);
+        setFormData({
+          firstName: userData.firstName,
+          lastName: userData.lastName,
+          email: userData.email,
+          
+        });
+        setLoading(false);
+      } catch (error) {
+        console.error('Error loading user:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [userId]);
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Kullanıcı güncelleme işlemini burada gerçekleştirin
-    console.log("Updated user:", formData);
+    try {
+      
+      await UserData.updateUser(userId, formData);
+      
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -26,44 +62,35 @@ const UserEditPage = ({ user }) => {
           <Form.Label>First Name</Form.Label>
           <Form.Control
             type="text"
+            placeholder="Enter first name"
             name="firstName"
             value={formData.firstName}
-            onChange={handleChange}
-            required
+            onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="formLastName">
           <Form.Label>Last Name</Form.Label>
           <Form.Control
             type="text"
+            placeholder="Enter last name"
             name="lastName"
             value={formData.lastName}
-            onChange={handleChange}
-            required
+            onChange={handleInputChange}
           />
         </Form.Group>
         <Form.Group controlId="formEmail">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
+            placeholder="Enter email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
-            required
+            onChange={handleInputChange}
           />
         </Form.Group>
-        <Form.Group controlId="formPhone">
-          <Form.Label>Phone</Form.Label>
-          <Form.Control
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </Form.Group>
+       
         <Button variant="primary" type="submit">
-          Save
+          Submit
         </Button>
       </Form>
     </div>

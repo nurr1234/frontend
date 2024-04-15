@@ -9,7 +9,7 @@ function BookEdit({ book, onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(book.id, title); // onSubmit işlevini çağırarak kitap bilgilerini güncelleyin
+    onSubmit(book.id, title); 
   };
 
   return (

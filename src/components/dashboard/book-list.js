@@ -17,28 +17,28 @@ const BookList = () => {
   const [totalRows, setTotalRows] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterOption, setFilterOption] = useState('all');
-  const navigate = useNavigate();
-
   const [lazyState, setLazyState] = useState({
     first: 0,
     rows: 10,
     page: 0,
-    sortField: null,
-    sortOrder: null,
+    sortField: 'publishDate',
+    sortOrder: -1,
   });
+  const navigate = useNavigate();
 
   const onPage = event => {
     setLazyState(event);
   };
 
-  const loadData = async page => {
+  const loadData = async () => {
     try {
       const exampleData = BookData;
-      const startIndex = (page - 1) * lazyState.rows;
+      const sortedData = exampleData.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+      const startIndex = lazyState.page * lazyState.rows;
       const endIndex = startIndex + lazyState.rows;
-      const slicedData = exampleData.slice(startIndex, endIndex);
+      const slicedData = sortedData.slice(startIndex, endIndex);
       setList(slicedData);
-      setTotalRows(exampleData.length);
+      setTotalRows(sortedData.length);
       setLoading(false);
     } catch (error) {
       console.error('Error loading data:', error);
@@ -100,47 +100,43 @@ const BookList = () => {
   };
 
   useEffect(() => {
-    loadData(lazyState.page);
+    loadData();
   }, [lazyState]);
 
-  // Arama işlevi
+  
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-    // Arama yaparken sayfalama sıfırlanmalı
-    setLazyState({ ...lazyState, page: 0 });
-  };
-
-  // Filtreleme işlevi
-  const handleFilter = (e) => {
-    setFilterOption(e.target.value);
+    setSearchTerm(e.target.value.toLowerCase()); 
     
     setLazyState({ ...lazyState, page: 0 });
   };
 
- 
-  const handleSearchButtonClick = () => {
-    loadData(lazyState.page);
+  const handleFilter = (e) => {
+    setFilterOption(e.target.value);
+    setLazyState({ ...lazyState, page: 0 });
   };
 
-  // Filtrelenmiş ve aranmış verileri filtreleme
-const filteredData = list.filter((item) => {
-  if (!searchTerm && filterOption === 'all') {
-    return true; // Arama terimi yok ve tüm kitaplar gösterilmeli
-  } else if (!searchTerm && filterOption === 'available') {
-    return item.available;
-  } else if (!searchTerm && filterOption === 'not-available') {
-    return !item.available;
-  } else {
-    if (filterOption === 'all') {
-      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (filterOption === 'available') {
-      return item.title.toLowerCase().includes(searchTerm.toLowerCase()) && item.available;
-    } else {
-      return item.title.toLowerCase().includes(searchTerm.toLowerCase()) && !item.available;
-    }
-  }
-});
+  const handleSearchButtonClick = () => {
+    loadData();
+  };
 
+
+  const filteredData = list.filter((item) => {
+    if (!searchTerm && filterOption === 'all') {
+      return true; // Arama terimi yok ve tüm kitaplar gösterilmeli
+    } else if (!searchTerm && filterOption === 'available') {
+      return item.available;
+    } else if (!searchTerm && filterOption === 'not-available') {
+      return !item.available;
+    } else {
+      if (filterOption === 'all') {
+        return item.title.toLowerCase().includes(searchTerm);
+      } else if (filterOption === 'available') {
+        return item.title.toLowerCase().includes(searchTerm) && item.available;
+      } else {
+        return item.title.toLowerCase().includes(searchTerm) && !item.available;
+      }
+    }
+  });
 
   return (
     <div>
@@ -149,15 +145,15 @@ const filteredData = list.filter((item) => {
           <Card.Body>
             <Form>
               <Form.Group className="mb-3">
-              <div className="d-flex">
-                <Form.Control
-                  type="text"
-                  placeholder="Search by title, author, or ISBN"
-                  value={searchTerm}
-                  onChange={handleSearch}
+                <div className="d-flex">
+                  <Form.Control
+                    type="text"
+                    placeholder="Search by title, author, or ISBN"
+                    value={searchTerm}
+                    onChange={handleSearch}
                   />
-                <Button variant="primary" onClick={handleSearchButtonClick}><CiSearch /></Button>
-                <Button variant="success" onClick={handleNewBookClick}>New Book</Button>
+                  <Button variant="primary" onClick={handleSearchButtonClick} disabled={searchTerm.length < 3}><CiSearch /></Button>
+                  <Button variant="success" onClick={handleNewBookClick}>New Book</Button>
                 </div>
               </Form.Group>
               

@@ -19,19 +19,17 @@ const NewCategoryForm = () => {
     name: Yup.string().required("Required"),
   });
 
-  // Yerel olarak kategori oluşturma fonksiyonu tanımla
+
   const createCategory = async (categoryData) => {
     console.log("Creating new category:", categoryData);
-    // Burada kategori oluşturma işlemleri gerçekleştirilebilir.
-    // Örnek olarak, konsola loglama yapıldı.
-    // Gerçek bir API isteği yapmak isterseniz burada ilgili işlemleri gerçekleştirebilirsiniz.
+    
   };
 
   const onSubmit = async (values) => {
     setLoading(true);
 
     try {
-      // createCategory fonksiyonunu kullanarak kategori oluştur
+      
       await createCategory(values);
       formik.resetForm();
       dispatch(setOperation(null));

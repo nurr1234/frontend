@@ -1,30 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Container, Image, Button } from 'react-bootstrap';
+import { Card, Container, Image, Button, FormControl } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { LuSearch } from "react-icons/lu";
 import { IoIosArrowForward } from "react-icons/io";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { useDispatch, useSelector } from 'react-redux';
 import AuthorData from '../../helpers/data/author.json';
-
-import './author-list.scss';
 
 const AuthorList = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [totalRows, setTotalRows] = useState(0);
   const [searchText, setSearchText] = useState('');
-  const dispatch = useDispatch();
-  const { listRefreshToken } = useSelector(state => state.misc);
+  const [filteredAuthors, setFilteredAuthors] = useState([]);
   const navigate = useNavigate();
 
   const [lazyState, setLazyState] = useState({
     first: 0,
     rows: 10,
     page: 0,
-    sortField: null,
-    sortOrder: null,
+    sortField: 'createdAt', // Varsayılan sıralama createdAt'e göre
+    sortOrder: -1, // Azalan sıralama (yeni önce)
   });
 
   const onPage = event => {
@@ -33,8 +29,10 @@ const AuthorList = () => {
 
   const loadData = async () => {
     try {
-      const exampleData = AuthorData;
-      setList(exampleData);
+      const exampleData = AuthorData.sort((a, b) => {
+        return lazyState.sortOrder === -1 ? new Date(b.createdAt) - new Date(a.createdAt) : new Date(a.createdAt) - new Date(b.createdAt);
+      });
+      setList(exampleData.slice(lazyState.first, lazyState.first + lazyState.rows));
       setTotalRows(exampleData.length);
       setLoading(false);
     } catch (error) {
@@ -45,45 +43,47 @@ const AuthorList = () => {
 
   const handleSearch = () => {
     setLoading(true);
-    const filteredData = AuthorData.filter(author =>
+    const filteredData = list.filter(author =>
       author.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
       author.lastName.toLowerCase().includes(searchText.toLowerCase())
     );
-    setList(filteredData);
-    setTotalRows(filteredData.length);
+    setFilteredAuthors(filteredData);
     setLoading(false);
+  };
+
+  const handleInputChange = (e) => {
+    setSearchText(e.target.value);
   };
 
   useEffect(() => {
     loadData();
-  }, [listRefreshToken]);
+  }, [lazyState]);
 
   return (
     <Container>
       <Card>
         <Card.Body>
           <div className="d-flex mb-3">
-            <input
+            <FormControl
               type="text"
-              className="form-control me-2"
               placeholder="Search by name"
               value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
+              onChange={handleInputChange}
               maxLength={30}
             />
             <Button
               className="btn"
               variant="success"
-              disabled={searchText.length <= 3}
+              disabled={searchText.length < 3}
               onClick={handleSearch}
-              style={{ height: '45px', width: '50px', backgroundColor: '#38a344' }}
+              style={{ height: '45px', width: '50px', backgroundColor: '#38a344', marginRight: '5px' }}
             >
-               <LuSearch  style={{ color: '#ffffff'}} />
+              <LuSearch style={{ color: '#ffffff' }} />
             </Button>
-            <Button 
-              variant="success" 
-              onClick={() => navigate('/author/new')} 
-              style={{ height: '45px', width:'120px', textAlign: 'center', whiteSpace: 'nowrap'  }}
+            <Button
+              variant="success"
+              onClick={() => navigate('/author/new')}
+              style={{ height: '45px', width: '120px', textAlign: 'center', whiteSpace: 'nowrap' }}
             >
               New Author
             </Button>
@@ -93,7 +93,7 @@ const AuthorList = () => {
             <DataTable
               lazy
               dataKey="id"
-              value={list}
+              value={filteredAuthors.length > 0 ? filteredAuthors : list}
               paginator
               rows={lazyState.rows}
               totalRecords={totalRows}
@@ -103,11 +103,10 @@ const AuthorList = () => {
               rowClassName="table-row-divider"
             >
               <Column
-                header="Profile Image"
                 body={(rowData) => (
-                  <Image src={rowData.profileImage} roundedCircle style={{ width: '32px', height: '32px' }} />
+                  <Image src={rowData.profileImage || 'placeholder.jpg'} roundedCircle style={{ width: '32px', height: '32px', display: rowData.profileImage ? 'block' : 'none' }} />
                 )}
-                style={{ width: '10%' }}
+                style={{ width: '20%' }}
               />
               <Column
                 field="firstName"
@@ -116,7 +115,7 @@ const AuthorList = () => {
               <Column
                 field="lastName"
                 headerStyle={{ textAlign: 'center' }}
-                style={{ width: '70%' }}
+                style={{ width: '50%' }}
               />
               <Column
                 body={(rowData) => (

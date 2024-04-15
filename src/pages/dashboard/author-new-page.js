@@ -3,21 +3,20 @@ import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const AuthorNewPage = () => {
-  // Form giriş değerlerini tutmak için state değişkenleri
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); // useNavigate hook'unu kullanarak yönlendirme yapmak için navigate fonksiyonunu alın
-
-  // Form gönderimini işlemek için fonksiyon
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Burada form gönderimini işleyebilirsiniz, örneğin verileri arka uca gönderme gibi
-    // Şimdilik, form verilerini sadece konsola yazdıralım
+    if (!firstName || !lastName) {
+      alert('Please fill in all fields');
+      return;
+    }
     console.log({ firstName, lastName, birthDate });
-
-    navigate('/authors'); // Kullanıcıyı yazar listesi sayfasına yönlendir (örneğin)
+    navigate('/authors');
+    
   };
 
   return (
@@ -53,7 +52,6 @@ const AuthorNewPage = () => {
             placeholder="Enter Birth Date"
             value={birthDate}
             onChange={(e) => setBirthDate(e.target.value)}
-            required
           />
         </Form.Group>
 

@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     loadData();
-    // eslint-disable-next-line
+    
   }, []);
 
   return <>{loading ? <LoadingSpinner loadingText="Loading..."/> : <AppRouter />}</>;

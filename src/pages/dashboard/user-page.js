@@ -5,13 +5,13 @@ import PageHeader from "../../components/common/page-header";
 
 import UserNewPage from "../dashboard/user-new-page"
 import UsersList from "../../components/dashboard/users-list";
-import UserEditPage from "../../components/dashboard/users-page/user-edit-page"; // Ekledik
+import UserEditPage from "../../components/dashboard/users-page/user-edit-page"; 
 
 const UsersPage = () => {
   const { currentOperation, currentUser } = useSelector((state) => state.misc);
 
   const handleSearch = (searchText) => {
-    // Arama işlemleri burada gerçekleştirilecek
+    
     console.log("Aranan metin:", searchText);
   };
 

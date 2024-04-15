@@ -15,7 +15,7 @@ const SearchResults = ({ searchResults }) => {
                 <h3>{book.title}</h3>
                 <p>Author: {book.author}</p>
                 <p>Publish Date: {book.publishDate}</p>
-                {/* Diğer bilgiler */}
+               
               </div>
             </li>
           ))}
