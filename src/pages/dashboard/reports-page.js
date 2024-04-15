@@ -2,23 +2,17 @@ import React from 'react';
 
 import Spacer from "../../components/common/spacer";
 import PageHeader from "../../components/common/page-header";
-import ReportsList from '../../components/dashboard/reports-page/reports-list';
-import ReportBreadcrumb from "../../components/dashboard/reports-page/report-breadcrumb";
+import ReportsList from '../../components/dashboard/reports-list';
 
-
-
-const BooksPage = () => {
+const ReportsPage = () => {
   return (
     <>
-      <PageHeader title="ReportsPage" />
+      <PageHeader title="Reports Page" />
       <Spacer />
-    
-      <ReportBreadcrumb />
       <ReportsList />
       <Spacer />
     </>
   );
 };
-    
 
-export default BooksPage;
+export default ReportsPage;

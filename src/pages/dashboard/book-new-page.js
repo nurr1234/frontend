@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setListRefreshToken, setOperation } from "../../store/slices/misc-slice";
 import { swalAlert } from "../../helpers/functions/swal";
 import ButtonLoader from "../../components/common/button-loader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const createBook = async (bookData) => {
   console.log("Creating new book:", bookData);
@@ -14,6 +14,7 @@ const createBook = async (bookData) => {
 
 const NewBookForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
@@ -44,6 +45,10 @@ const NewBookForm = () => {
       dispatch(setListRefreshToken(Math.random()));
       dispatch(setOperation(null));
       swalAlert("Book created successfully", "success");
+
+      
+      navigate("/books");
+
     } catch (err) {
       console.log(err);
       swalAlert("Failed to create book", "error");

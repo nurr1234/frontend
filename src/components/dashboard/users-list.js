@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Container } from "react-bootstrap";
@@ -57,15 +58,13 @@ const UserList = () => {
       dispatch(setOperation("new"));
       navigate("/users/new");
     } else if (userRole === "employee") {
-      
       console.log("Sadece üye tipi kullanıcılar oluşturabilir.");
     }
   };
   
 
-  // Kullanıcıyı düzenleme sayfasına yönlendiren fonksiyon
   const handleEditUser = (userId) => {
-    navigate(`/users/edit/${userId}`); // URL parametresi olarak kullanıcı kimliğini alır
+    navigate(`/users/edit/${userId}`); 
   };
 
   useEffect(() => {
@@ -85,21 +84,19 @@ const UserList = () => {
               onChange={(e) => setSearchText(e.target.value)}
               maxLength={30}
             />
-            
             <Button
-  className="btn-primary"
-  disabled={searchText.length < 3} 
-  onClick={handleSearch}
-  style={{ height: '55px', width: '50px' }}
->
-  <CiSearch />
-</Button>
-
+              className="btn-primary"
+              disabled={searchText.length < 3} 
+              onClick={handleSearch}
+              style={{ height: '55px', width: '50px' }}
+            >
+              <CiSearch />
+            </Button>
             {userRole === "admin" && (
               <Button
                 variant="success"
                 onClick={handleNewUser}
-                style={{ height: '55px', width: '120px', marginLeft: '10px' }}
+                className="user-list-btn"
               >
                 New User
               </Button>
@@ -118,26 +115,22 @@ const UserList = () => {
             first={lazyState.first}
             onPage={onPage}
           >
-
-<Column
-  header="First Name"
-  body={(rowData) => (
-    <div className="user-list-item">
-      <div>
-        <BiSolidUserCircle className="user-icon" />
-        <span>{rowData.firstName}</span>
-      </div>
-    </div>
-  )}
-/>
-
-
-          <Column
-          body={(rowData) => (
-         <span>{rowData.lastName}</span>
-  )}
-/>
-
+            <Column
+              header="First Name"
+              body={(rowData) => (
+                <div className="user-list-item">
+                  <div>
+                    <BiSolidUserCircle className="user-icon" />
+                    <span>{rowData.firstName}</span>
+                  </div>
+                </div>
+              )}
+            />
+            <Column
+              body={(rowData) => (
+                <span>{rowData.lastName}</span>
+              )}
+            />
             <Column
               field="email"
               body={(rowData) => <span className="user-list-center">{rowData.email}</span>}
@@ -146,9 +139,8 @@ const UserList = () => {
               field="phone"
               body={(rowData) => <span className="user-list-center">{rowData.phone}</span>}
             />
-            {/* Yeni sütun ekleme */}
+            
             <Column
-              
               body={(rowData) => (
                 <div className="user-list-edit">
                   <BiChevronRight

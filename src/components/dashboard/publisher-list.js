@@ -1,4 +1,3 @@
-// PublisherList.js
 
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -8,8 +7,8 @@ import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Image } from "primereact/image";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentRecord, setOperation } from "../../store/slices/misc-slice";
-import { swalAlert, swalConfirm } from "../../helpers/functions/swal";
+import { setOperation } from "../../store/slices/misc-slice";
+
 import PublisherData from "../../helpers/data/publisher.json";
 import { IoIosArrowForward } from "react-icons/io";
 import './publisher-list.scss';
@@ -23,12 +22,13 @@ const PublisherList = () => {
     first: 0,
     rows: 10,
     page: 0,
-    sortField: "createdAt", // Sort by creation date
-    sortOrder: -1, // Descending order (latest first)
+    sortField: "createdAt", 
+    sortOrder: -1, 
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { listRefreshToken } = useSelector((state) => state.misc);
+
 
   const onPage = (event) => {
     setLazyState(event);
@@ -45,42 +45,21 @@ const PublisherList = () => {
     setLoading(false);
   }, [lazyState]);
 
+
   const handleSearch = () => {
     setLoading(true);
     const filteredData = PublisherData.filter((publisher) =>
       publisher.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setPublishers(filteredData);
-    setTotalRows(filteredData.length);
+    setTotalRows(filteredData.length); 
     setLoading(false);
   };
 
-  const handleDelete = async (id) => {
-    const publisher = publishers.find(p => p.id === id);
-    if (publisher && publisher.built_in) {
-      swalAlert("Builtin publishers cannot be deleted", "warning");
-      return;
-    }
-    const resp = await swalConfirm("Are you sure you want to delete?");
-    if (!resp.isConfirmed) return;
-    setLoading(true);
-    try {
-      // Silme işlemi
-      swalAlert("Publisher was deleted", "success");
-      loadData(lazyState.page);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  
+    
 
-  const handleEdit = (row) => {
-    dispatch(setCurrentRecord(row));
-    dispatch(setOperation("edit"));
-    navigate(`/publishers/${row.id}/edit`);
-  };
-
+  
   const handleNewPublisher = () => {
     dispatch(setOperation("new"));
     navigate("/publishers/new");
@@ -139,7 +118,7 @@ const PublisherList = () => {
               body={(rowData) => (
                 <Image src={`/images/publisher/pub${rowData.id}.png`} alt="Profile Image" width="70" height="60" preview />
               )}
-              style={{ width: '20%' }} // Bu satırı kaldırdık
+              style={{ width: '20%' }} 
             />
             <Column field="name" />
             <Column field="description" />

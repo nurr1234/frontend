@@ -5,7 +5,8 @@
     "imageUrl": "/images/book/book1.png", 
     "author": "VİCTOR EMİL FRANKL", 
     "isbn": "9786054054206",
-    "publishDate": "2019-09-19"
+    "publishDate": "2019-09-19",
+    "available": true
   },
   { 
     "id": 2, 
@@ -13,7 +14,8 @@
     "imageUrl": "/images/book/book2.png", 
     "author": "MATT HAIG", 
     "isbn": "1234567890", 
-    "publishDate": "2022-02-23"
+    "publishDate": "2022-02-23",
+    "available": false
   },
   { 
     "id": 3, 
@@ -21,7 +23,8 @@
     "imageUrl": "/images/book/book3.png", 
     "author": "PAULO COELHO", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": true
   },
   { 
     "id": 4, 
@@ -37,7 +40,8 @@
     "imageUrl": "/images/book/book5.png", 
     "author": "Dr. David Burns ", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": true
   },
   { 
     "id": 6, 
@@ -53,7 +57,9 @@
     "imageUrl": "/images/book/book7.png", 
     "author": "Antoine De Saint Exupery ", 
     "isbn": "9786059681001", 
-    "publishDate": "15.02.2016"
+    "publishDate": "15.02.2016",
+    "available": true
+   
   },
   { 
     "id": 8, 
@@ -69,7 +75,8 @@
     "imageUrl": "/images/book/book9.png", 
     "author": "F. Scott Fitzgerald ", 
     "isbn": "9786257784832", 
-    "publishDate": "21.12.2020"
+    "publishDate": "21.12.2020",
+    "available": true
 
   },
   { 
@@ -78,7 +85,8 @@
     "imageUrl": "/images/book/book10.png" ,
     "author": "Vladimir Tumanov ", 
     "isbn": "9786059952767", 
-    "publishDate": "14.10.2019"
+    "publishDate": "14.10.2019",
+    "available": true
   },
   { 
     "id": 11, 
@@ -86,7 +94,8 @@
     "imageUrl": "/images/book/book11.png", 
     "author": "Yu Hua ", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": false
   },
   { 
     "id": 12, 
@@ -94,7 +103,8 @@
     "imageUrl": "/images/book/book12.png", 
     "author": "JOSEPH MURPHY", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": false
   },
   { 
     "id": 13, 
@@ -102,7 +112,8 @@
     "imageUrl": "/images/book/book13.png", 
     "author": "SERKAN KARAİSMAİLOĞLU", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": true
   },
   { 
     "id": 14, 
@@ -110,7 +121,8 @@
     "imageUrl": "/images/book/book14.png", 
     "author": "YAŞAR KEMAL", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": true
   },
   { 
     "id": 15, 
@@ -118,7 +130,8 @@
     "imageUrl": "/images/book/book15.png", 
     "author": "Ray Bradbury ", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": true
   },
   { 
     "id": 16, 
@@ -126,7 +139,8 @@
     "imageUrl": "/images/book/book16.png", 
     "author": "GRİGORY PETROV", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": false
   },
   { 
     "id": 17, 
@@ -134,7 +148,8 @@
     "imageUrl": "/images/book/book17.png", 
     "author": "Author 1", 
     "isbn": "1234567890", 
-    "publishDate": "2022-01-01"
+    "publishDate": "2022-01-01",
+    "available": true
   },
   { 
     "id": 18, 

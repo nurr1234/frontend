@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Container, Alert } from "react-bootstrap";
 import { BiChevronRight } from "react-icons/bi";
+import { GiSpellBook } from "react-icons/gi";
 import { CiSearch } from "react-icons/ci";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -22,6 +23,7 @@ const CategoryList = () => {
     sortField: "createdAt",
     sortOrder: -1,
   });
+  const [alertMessage, setAlertMessage] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -51,8 +53,9 @@ const CategoryList = () => {
       setCategories(filteredData);
       setTotalRows(filteredData.length);
       setLoading(false);
+      setAlertMessage(""); 
     } else {
-      alert("Arama metni en az 3, en fazla 30 karakter olmalıdır.");
+      setAlertMessage("Search text length must be between 3 and 30 characters.");
     }
   };
 
@@ -62,7 +65,10 @@ const CategoryList = () => {
   };
 
   const handleEditCategory = (categoryId) => {
-    navigate(`/categories/edit/${categoryId}`);
+   
+    if (window.confirm("Are you sure you want to edit this category?")) {
+      navigate(`/categories/edit/${categoryId}`);
+    }
   };
 
   useEffect(() => {
@@ -104,6 +110,7 @@ const CategoryList = () => {
               New Category
             </Button>
           </div>
+          {alertMessage && <Alert variant="danger">{alertMessage}</Alert>}
           <DataTable
             lazy
             dataKey="id"
@@ -116,10 +123,12 @@ const CategoryList = () => {
             onPage={onPage}
             rowClassName={rowClassName}
           >
-            <Column field="name" header="Name" />
             <Column
               body={(rowData) => (
                 <div className="row-content">
+                  <GiSpellBook 
+                  className="category-icon" />
+                  <span className="category-name">{rowData.name}</span>
                   <BiChevronRight
                     className="chevron-icon"
                     onClick={() => handleEditCategory(rowData.id)}

@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Yapı Kredı",
+    "name": "Can Yaynları",
     "built_in": true,
     "profileImage": "/images/publisher/pub2.png"
   },
   {
     "id": 2,
-    "name": "Can Yaynları",
+    "name": "Yapı Kredi Yayınları",
     "built_in": false,
     "profileImage": "/images/publisher/pub1.png"
   },

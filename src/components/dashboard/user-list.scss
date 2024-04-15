@@ -1,6 +1,10 @@
 .user-list-row {
-  border-bottom: 1px solid #d1cdcd; /* Veya istediğiniz başka bir renk ve kalınlık */
+  border-bottom: 1px solid #d1cdcd; 
 }
+.user-list-row:hover {
+  background-color: #88e7eb; 
+}
+
 
 
 .user-list-item {
@@ -15,7 +19,7 @@
 
   .user-icon {
     margin-right: 10px;
-    color: rgb(114, 114, 245);
+    color: rgb(171, 114, 245);
     height: 25px;
     width: 25px;
   }
@@ -27,7 +31,12 @@
   }
 }
 .user-edit-icon{
-  color: rgb(224, 80, 80);
+  color: rgb(238, 107, 107);
   width: 20px;
   height: 20px;
 }
+
+
+
+
+
